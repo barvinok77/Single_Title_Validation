@@ -19,8 +19,8 @@ public class Selenium {
 		String useragent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
 		Matcher m_browser = Pattern.compile(useragentregex).matcher(useragent);m_browser.find();
 		
-		String url = "http://www.learn2test.net";
-		String title_expected = "learn2test.net";
+		String url = "http://www.Wikipedia.com";
+		String title_expected = "Wikipedia";
 		
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

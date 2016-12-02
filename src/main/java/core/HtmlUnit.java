@@ -14,8 +14,8 @@ public class HtmlUnit {
 
 		String text_case_id = "TC-002.01";
 		String browser = "HtmlUnit";
-		String url = "http://www.learn2test.net";
-		String title_expected = "learn2test.net";
+		String url = "http://www.Wikipedia.com";
+		String title_expected = "Wikipedia";
 		
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
