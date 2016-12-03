@@ -10,6 +10,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.JavascriptExecutor;
 public class Selenium {
 	public static void main(String[] args) {
+		
+		if (args.length == 0) {
+			System.err.println("No arguments!");
+			System.exit(1);
+		}
 
 		WebDriver driver = new FirefoxDriver();    // Version 1.1 :: Firefox
 		// Test Case ID
@@ -19,8 +24,13 @@ public class Selenium {
 		String useragent = (String) ((JavascriptExecutor) driver).executeScript("return navigator.userAgent;");
 		Matcher m_browser = Pattern.compile(useragentregex).matcher(useragent);m_browser.find();
 		
-		String url = "http://www.Wikipedia.com";
-		String title_expected = "Wikipedia";
+		//String url = "http://www.Wikipedia.com";
+		//String title_expected = "Wikipedia";
+		
+		String param[] = args[0].split("\\|");
+		
+		String url = param[0];
+		String title_expected = param[1];
 		
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
